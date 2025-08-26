@@ -306,7 +306,7 @@ public class TaskPipeline implements AutoCloseable {
         }
 
         if (sortedOrder.size() != tasks.size()) {
-            throw new RuntimeException("Cycle detected in the pipeline graph. The process cannot complete." + sortedOrder);
+            throw new CycleDetectedException("Cycle detected in the pipeline graph. The process cannot complete. Sorted order: " + sortedOrder);
         }
         return sortedOrder;
     }
